@@ -1,0 +1,13 @@
+<p>Hello {{name}}!</p>
+<button class="generic_btn" (click)="onNameClick()">Clícame</button>
+<div>
+  <h1>ADD 2 LIST</h1>
+  <input id="inputName" type="text" placeholder="Write name...">
+  <button class="generic_btn" (click)="add2List()">ADD</button>
+  <button class="generic_btn" (click)="clearList()">CLEAR</button>
+  <div [innerHtml] = "shownList"></div>
+</div>
+
+
+
+
