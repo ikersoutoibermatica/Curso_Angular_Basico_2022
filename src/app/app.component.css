@@ -1,3 +1,14 @@
-.all {
+.appComponent {
   text-align: center;
+  background-color: lightblue;
+}
+
+button {
+  background-color: aqua;
+  margin: 10px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: lightgray;
 }

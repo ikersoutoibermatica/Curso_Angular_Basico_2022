@@ -1,0 +1,10 @@
+<div class="component3">
+  <div>
+    <h2>ADD 2 LIST</h2>
+    <input #myInputC3 type="text" placeholder="Write name..." [(ngModel)]="getName"/>
+    <p>Writting '{{myInputC3.value}}'</p>
+    <button (click)="add2List(myInputC3)">ADD</button>
+    <button (click)="clearList(myInputC3)">CLEAR</button>
+    <div [innerHtml]="shownList"></div>
+  </div>
+</div>

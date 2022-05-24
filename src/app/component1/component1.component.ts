@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'test-component',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css'],
+  selector: 'app-component1',
+  templateUrl: './component1.component.html',
+  styleUrls: ['./component1.component.css'],
 })
-export class TestComponent {
+export class Component1Component {
   @Input() name: string = '';
   @Output() sayHello: EventEmitter<string> = new EventEmitter();
 
@@ -18,7 +18,7 @@ export class TestComponent {
   }
 
   ngOnInit() {
-    this.nameInputElement = (<HTMLInputElement>(document.getElementById('inputName')))
+    this.nameInputElement = (<HTMLInputElement>(document.getElementById('inputNameC1')))
     this.nameInputElement.focus();
   }
 

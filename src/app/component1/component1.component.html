@@ -1,0 +1,11 @@
+<div class="component1">
+  <h1>Hello {{ name }}!</h1>
+  <button (click)="onNameClick()">Clícame</button>
+  <div>
+    <h2>ADD 2 LIST</h2>
+    <input id="inputNameC1" type="text" placeholder="Write name..."/>
+    <button (click)="add2List()">ADD</button>
+    <button (click)="clearList()">CLEAR</button>
+    <div [innerHtml]="shownList"></div>
+  </div>
+</div>
