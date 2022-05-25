@@ -44,9 +44,8 @@ export class Component4Component implements OnInit {
     this.apiService.getPokemonInfo(url).subscribe({
       next: (receivedObj) => {
         this.pokemonInfo = receivedObj;
-        this.pokemonInfo.sprites = receivedObj.sprites["back_default"]
+        this.pokemonInfo.sprites = receivedObj.sprites["front_default"]
         this.showPokeInfo = true;
-        // window.scrollTo(0, document.body.scrollHeight);
         console.log(receivedObj);
       },
       error: (e) => {
