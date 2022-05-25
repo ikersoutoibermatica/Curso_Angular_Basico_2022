@@ -1,0 +1,15 @@
+<h3>{{ pokeInfo.name | uppercase }}</h3>
+<table id="pokemonInfoTable">
+  <tr>
+    <th>PHOTO</th>
+    <th>HEIGHT</th>
+    <th>WEIGHT</th>
+    <th>BASE EXPERIENCE</th>
+  </tr>
+  <tr>
+    <td><img src="{{ pokeInfo.sprites }}" /></td>
+    <td>{{ pokeInfo.height }}</td>
+    <td>{{ pokeInfo.weight }}</td>
+    <td>{{ pokeInfo.base_experience }}</td>
+  </tr>
+</table>

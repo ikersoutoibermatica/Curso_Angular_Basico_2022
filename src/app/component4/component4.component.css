@@ -1,3 +1,21 @@
 .component4 {
-  background-color: lightpink;
+  background-color: lightgray;
 }
+
+#listaPokemon {
+  width: 100%;
+}
+
+#listaPokemon table, th, td {
+  border: 1px solid black;
+}
+
+#listaPokemon tr:hover {
+  background-color: yellow;
+}
+
+#listaPokemon tr:active {
+  background-color: gray;
+}
+
+

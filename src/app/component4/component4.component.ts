@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/rest.service';
 import { ApiResult } from '../models/api-result.model';
 import { Pokemon } from '../models/pokemon.model';
+import { PokemonInfo } from '../models/pokemon-info.model';
 
 @Component({
   selector: 'app-component4',
@@ -9,26 +10,52 @@ import { Pokemon } from '../models/pokemon.model';
   styleUrls: ['./component4.component.css'],
 })
 export class Component4Component implements OnInit {
-  apiResult: ApiResult = new ApiResult(-1, null, null, new Array<Pokemon>());
+
+  pokemonList: Array<Pokemon> = new Array<Pokemon>();
+  pokemonInfo: PokemonInfo = {name: "", height: -1, weight: -1, base_experience: -1, sprites: null}
+  showPokeInfo: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
+    this.showPokeInfo = false;
     this.getPokemonList();
   }
 
   private getPokemonList() {
-    this.apiService.getPokemonList(true).subscribe({
+    //Si le pasamos true saca todos los pokemons
+    //Si le pasamos false saca unos pocos
+    this.apiService.getPokemonList(false).subscribe({
       next: (receivedObj) => {
-        this.apiResult = receivedObj;
+        this.pokemonList = receivedObj.results;
         console.log(receivedObj);
       },
       error: (e) => {
         console.error(e);
       },
       complete: () => {
-        console.info('complete - finish');
+        //console.info('complete - finish');
       },
     });
   }
+
+  getPokemonInfo(url: string) {
+    this.showPokeInfo = false;
+    this.apiService.getPokemonInfo(url).subscribe({
+      next: (receivedObj) => {
+        this.pokemonInfo = receivedObj;
+        this.pokemonInfo.sprites = receivedObj.sprites["back_default"]
+        this.showPokeInfo = true;
+        // window.scrollTo(0, document.body.scrollHeight);
+        console.log(receivedObj);
+      },
+      error: (e) => {
+        console.error(e);
+      },
+      complete: () => {
+        //console.info('complete - finish');
+      },
+    });
+  }
+
 }

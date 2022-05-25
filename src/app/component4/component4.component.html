@@ -1,3 +1,22 @@
 <div class="component4">
-  <p>{{apiResult.getCount()}}</p>
+  <h3>POKEMON LIST</h3>
+  <table id="listaPokemon">
+    <tr>
+      <th>POS</th>
+      <th>NAME</th>
+      <th>URL</th>
+    </tr>
+    <tr
+      *ngFor="let item of pokemonList; let indice = index"
+      (click)="getPokemonInfo(item.url)">
+      <td>{{ indice + 1 }}</td>
+      <td>{{ item.name | uppercase }}</td>
+      <td>
+        <a href="{{ item.url }}">{{ item.url }}</a>
+      </td>
+    </tr>
+  </table>
+  <div id="pokemonInfo">
+    <app-component-pokemon-info *ngIf="showPokeInfo" [pokeInfo]="pokemonInfo"></app-component-pokemon-info>
+  </div>
 </div>

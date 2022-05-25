@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Pokemon } from '../models/pokemon.model';
 import { ApiResult } from '../models/api-result.model';
+import { PokemonInfo } from '../models/pokemon-info.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,12 +20,18 @@ export class ApiService {
     if (limit) {
       lim = this.listSizeItems;
     }
-    var urlDef = this.serviceUrl + 'pokemon' + lim;
+    let urlDef = this.serviceUrl + 'pokemon' + lim;
     console.log(urlDef);
 
-    const url = this.http.get<ApiResult>(urlDef);
+    let url = this.http.get<ApiResult>(urlDef);
     url.pipe(retry(1), catchError(this.handleError));
     return url;
+  }
+
+  getPokemonInfo(url: string): Observable<PokemonInfo> {
+    let urlPoke = this.http.get<PokemonInfo>(url);
+    urlPoke.pipe(retry(1), catchError(this.handleError));
+    return urlPoke;
   }
 
   private handleError(error: HttpErrorResponse) {
