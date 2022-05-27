@@ -30,4 +30,9 @@ import { ComponentPokemonInfoComponent } from './component4/component-pokemon-in
   providers: [ApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  // ng g m pages/prueba --module app.module --route prueba
+
+
+}

@@ -10,9 +10,14 @@ import { PokemonInfo } from '../models/pokemon-info.model';
   styleUrls: ['./component4.component.css'],
 })
 export class Component4Component implements OnInit {
-
   pokemonList: Array<Pokemon> = new Array<Pokemon>();
-  pokemonInfo: PokemonInfo = {name: "", height: -1, weight: -1, base_experience: -1, sprites: null}
+  pokemonInfo: PokemonInfo = {
+    name: '',
+    height: -1,
+    weight: -1,
+    base_experience: -1,
+    sprites: null,
+  };
   showPokeInfo: boolean = false;
 
   constructor(private apiService: ApiService) {}
@@ -44,7 +49,7 @@ export class Component4Component implements OnInit {
     this.apiService.getPokemonInfo(url).subscribe({
       next: (receivedObj) => {
         this.pokemonInfo = receivedObj;
-        this.pokemonInfo.sprites = receivedObj.sprites["front_default"]
+        this.pokemonInfo.sprites = receivedObj.sprites['front_default'];
         this.showPokeInfo = true;
         console.log(receivedObj);
       },
@@ -53,8 +58,8 @@ export class Component4Component implements OnInit {
       },
       complete: () => {
         //console.info('complete - finish');
+        //getIcon2 = (param: string) => `Hola mundo ${param}`;
       },
     });
   }
-
 }
