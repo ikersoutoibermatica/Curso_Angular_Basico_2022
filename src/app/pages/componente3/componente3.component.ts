@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-component3',
-  templateUrl: './component3.component.html',
-  styleUrls: ['./component3.component.css']
+  selector: 'app-componente3',
+  templateUrl: './componente3.component.html',
+  styleUrls: ['./componente3.component.css'],
 })
-export class Component3Component implements OnInit {
-
+export class Componente3Component implements OnInit {
   getName: string = '';
   namesList: Array<string> = [];
   shownList: string = '';
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     //focus
@@ -36,5 +34,4 @@ export class Component3Component implements OnInit {
     input.focus();
     this.namesList.splice(0, this.namesList.length);
   }
-
 }

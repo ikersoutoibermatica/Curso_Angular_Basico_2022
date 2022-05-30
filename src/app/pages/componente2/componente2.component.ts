@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-component2',
-  templateUrl: './component2.component.html',
-  styleUrls: ['./component2.component.css']
+  selector: 'app-componente2',
+  templateUrl: './componente2.component.html',
+  styleUrls: ['./componente2.component.css']
 })
-export class Component2Component implements OnInit {
+export class Componente2Component implements OnInit {
 
   nameInputElement: HTMLInputElement;
   getName: string = '';
@@ -25,8 +25,8 @@ export class Component2Component implements OnInit {
     if (this.getName != null && this.getName != '' && this.getName != 'null') {
       this.shownList = '';
       this.namesList.push(this.getName);
-      for (let i = 0; i < this.namesList.length; i++) {
-        this.shownList = this.shownList + '<p>' + this.namesList[i] + '</p>';
+      for (const element of this.namesList) {
+        this.shownList = this.shownList + '<p>' + element + '</p>';
       }
     }
     this.getName = '';

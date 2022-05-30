@@ -1,4 +1,4 @@
-.component4 {
+.lista-pokemon {
   background-color: lightgray;
 }
 
@@ -11,11 +11,10 @@
 }
 
 #listaPokemon tr:hover {
+  cursor: pointer;
   background-color: yellow;
 }
 
 #listaPokemon tr:active {
   background-color: gray;
 }
-
-

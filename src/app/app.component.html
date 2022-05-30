@@ -1,15 +1,7 @@
 <div class="appComponent">
   <h1>{{ title }}</h1>
-  <button (click)="componentVisibility(0)">CLEAR</button>
-  <button (click)="componentVisibility(99)">ALL</button>
-  <button (click)="componentVisibility(1)">COMPONENTE 1</button>
-  <button (click)="componentVisibility(2)">COMPONENTE 2</button>
-  <button (click)="componentVisibility(3)">COMPONENTE 3</button>
-  <button (click)="componentVisibility(4)">POKEMON C4</button>
-  <!-- <p>Witting '{{myComponentC1.inputNameC1}}' in Component1</p> -->
-  <!-- <p>Witting '{{ myComponentC2.getName }}' in Component2</p> -->
-  <app-component1 #myComponentC1 [name]="myName" (sayHello)="onSayHello($event)" *ngIf="showVisibilityC1"></app-component1>
-  <app-component2 #myComponentC2 *ngIf="showVisibilityC2"></app-component2>
-  <app-component3 *ngIf="showVisibilityC3"></app-component3>
-  <app-component4 *ngIf="showVisibilityC4"></app-component4>
+  <ng-container *ngFor="let item of navMenuList">
+    <button type="button" routerLink="{{ item.path }}">{{ item.name }}</button>
+  </ng-container>
 </div>
+<router-outlet></router-outlet>
